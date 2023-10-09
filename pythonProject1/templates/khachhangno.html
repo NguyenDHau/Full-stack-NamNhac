@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Danh sách khách hàng</h2>
+    <form method="GET" action="/kho">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tên khách hàng</th>
+                    <th>Số điện thoại</th>
+                    <th>Tổng số nợ</th>
+                    <th>Trạng Thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for khach_hang in data.list_khach_hang %}
+                    <tr>
+                        <td>{{ khach_hang.TenKhachHang }}</td>
+                        <td>{{ khach_hang.SDT }}</td>
+                        <td>{{ khach_hang.TongTienNo }}</td>
+                        <td>{{ khach_hang.TrangThai }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

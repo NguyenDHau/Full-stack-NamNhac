@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tạo đơn hàng</title>
+</head>
+<body>
+    <h1>Tạo đơn hàng</h1>
+
+    <h2>Danh sách sản phẩm</h2>
+    <form action="/taodonhang" method="GET">
+    <table>
+        <thead>
+            <tr>
+                <th>Tên hàng</th>
+                <th>Đơn vị tính</th>
+                <th>Đơn giá</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for san_pham in data.list_san_pham %}
+                <tr>
+                    <td>{{ san_pham.TenHang }}</td>
+                    <td>{{ san_pham.DonViTinh }}</td>
+                    <td>{{ san_pham.DonGia }}</td>
+                    <td>
+                        <input type="number" name="so_luong_{{ san_pham.TenHang }}" placeholder="Nhập số lượng">
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Tạo đơn hàng</button>
+</form>
+
+<!--    <h2>Đơn hàng</h2>-->
+<!--    <table id="don_hang">-->
+<!--        <thead>-->
+<!--            <tr>-->
+<!--                <th>Tên hàng</th>-->
+<!--                <th>Đơn vị tính</th>-->
+<!--                <th>Đơn giá</th>-->
+<!--                <th>Số lượng</th>-->
+<!--                <th>Thành tiền</th>-->
+<!--            </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        </tbody>-->
+<!--        <tfoot>-->
+<!--            <tr>-->
+<!--                <p id="tong_tien_text">Tổng tiền: <span id="tong_tien">{{ data.tong_tien }}</span></p>-->
+<!--                <a href="/taohoadon "><button type="button">Tạo hoá đơn</button></a>-->
+<!--            </tr>-->
+<!--        </tfoot>-->
+<!--    </table>-->
+
+<!--    <script>-->
+<!--        function addToOrder(tenHang, donViTinh, donGia, soLuong) {-->
+<!--            soLuong = parseFloat(prompt('Nhập số lượng sản phẩm:', '1'));-->
+<!--            if (isNaN(soLuong) || soLuong <= 0) {-->
+<!--                return; // Người dùng đã hủy hoặc không nhập số lượng hợp lệ, không thêm vào đơn hàng-->
+<!--            }-->
+
+<!--            var donHangTable = document.getElementById('don_hang').getElementsByTagName('tbody')[0];-->
+<!--            var newRow = document.createElement('tr');-->
+
+<!--            newRow.innerHTML = '<td>' + tenHang + '</td>' +-->
+<!--                '<td>' + donViTinh + '</td>' +-->
+<!--                '<td>' + donGia + '</td>' +-->
+<!--                '<td>' + soLuong + '</td>' +-->
+<!--                '<td>' + (donGia * soLuong) + '</td>'; // Tính toán thành tiền-->
+
+<!--            donHangTable.appendChild(newRow);-->
+<!--        }-->
+<!--    </script>-->
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hoá đơn bán hàng</title>
+  <style>
+    /* CSS để tạo bảng đẹp mắt */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>html
+  <h1>Hoá đơn bán hàng</h1>
+
+  <form action="/taohoadon" method="POST">\
+    <label for="ten_khach_hang">Tên khách hàng:</label>
+    <input type="text" id="ten_khach_hang" name="ten_khach_hang"><br><br>
+
+    <label for="so_dien_thoai">Số điện thoại:</label>
+    <input type="text" id="so_dien_thoai" name="so_dien_thoai"><br><br>
+
+    <label for="tong_thanh_tien">Tổng thành tiền:</label>
+    <input type="text" id="tong_thanh_tien" name="tong_thanh_tien"><br><br>
+
+    <label for="trang_thai">Trạng thái:</label>
+    <select id="trang_thai" name="trang_thai">
+      <option value="DaThanhToan">Đã thanh toán</option>
+      <option value="ChuaThanhToan">Chưa thanh toán</option>
+    </select><br><br>
+
+    <input type="submit" value="Tạo hoá đơn">
+  </form>
+</body>
+</html>

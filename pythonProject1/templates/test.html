@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        input[type="text"] {
+            white-space: pre;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/kho.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap5/css/bootstrap.min.css') }}">
+</head>
+<body>
+    <main class="d-flex flex-nowrap">
+          <h1 class="visually-hidden">Năm Nhạc</h1>
+        <div class="d-flex">
+          <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 400px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+              <span class="fs-4">Năm Nhạc</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column" >
+              <li class="nav-item">
+                <a href="#" class="nav-link active" aria-current="page">
+                  <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                  Trang Chủ
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                  Đơn Hàng
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                  Quản Lý Sản Phẩm
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                  Quản Lý Thông Tin Khách Hàng
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                  Thống Kê
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        <table class="table table-hover">
+                <form method="GET" action="/kho">
+                    <th colspan="6">
+                        <input type="text" name="search" placeholder="Tìm kiếm sản phẩm">
+                        <input type="submit" name="search_data" value="Tìm kiếm">
+                    <th>
+                </form>
+
+                <tr>
+                    <th>Tên</th>
+                    <th>Số Lượng</th>
+                    <th>Đơn Vị Tính</th>
+                    <th>Giá Nhập</th>
+                    <th>Giá Bán</th>
+                    <th>Thao tác</th>
+                </tr>
+
+            <tbody>
+                {% for kho in data.results %}
+                    <form method="POST" action="/sua">
+                        <tr>
+                            <td contenteditable="true"><input type="text" name="tenhang_sua" value="{{ kho.TenHang }}"></td>
+                            <td contenteditable="true"><input type="number" name="soluong_sua" value="{{ kho.SoLuong }}"></td>
+                            <td contenteditable="true"><input type="text" name="donvitinh_sua" value="{{ kho.DonViTinh }}"></td>
+                            <td contenteditable="true"><input type="number" name="dongia_sua" value="{{ kho.DonGia }}"></td>
+                            <td contenteditable="true"><input type="number" name="giaban_sua" value="{{ kho.DonGiaBan }}"></td>
+                            <td>
+                                <input type="submit" name="submit_button" value="Sửa">
+                                <input type="submit" name="submit_button" value="Xoá">
+                            </td>
+                        </tr>
+                    </form>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+
+        <!-- Form thêm hàng -->
+    </main>
+<!--    <form method="POST" action="/themhang" class="my-30">-->
+<!--                <input type="text" name="ten_hang" placeholder="Tên hàng">-->
+<!--                <input type="text" name="so_luong" placeholder="Số lượng">-->
+<!--                <input type="text" name="don_vi_tinh" placeholder="Đơn vị tính">-->
+<!--                <input type="text" name="don_gia" placeholder="Đơn giá">-->
+<!--                <input type="text" name="don_gia_ban" placeholder="Đơn giá bán">-->
+<!--                <button type="submit">Thêm hàng</button>-->
+<!--    </form>-->
+</body>
+</html>

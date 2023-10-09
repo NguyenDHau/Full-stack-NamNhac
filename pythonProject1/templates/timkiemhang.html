@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kết quả tìm kiếm</title>
+</head>
+<body>
+    <h1>Kết quả tìm kiếm</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Số Lượng</th>
+                <th>Đơn Vị Tính</th>
+                <th>Giá Nhập</th>
+                <th>Giá Bán</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for kho in data1.results %}
+                <tr>
+                    <td>{{ kho.TenHang }}</td>
+                    <td>{{ kho.SoLuong }}</td>
+                    <td>{{ kho.DonViTinh }}</td>
+                    <td>{{ kho.DonGia }}</td>
+                    <td>{{ kho.DonGiaBan }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

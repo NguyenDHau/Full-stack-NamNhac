@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        input[type="text"] {
+            white-space: pre;
+        }
+        .custom-bg {
+            background-color: rgba(242, 242, 242, 0.5)color;
+        }
+        .custom-bg-white {
+            background-color: white;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/kho.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+</head>
+<body>
+    <main class="flex-nowrap h-100">
+        <div class="d-flex w-100" style="background-color: #cccccc">
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark ml-3" style="width: 340px;">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                  <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                  <img src="static/image/logo.png" alt="mô_tả_ảnh" width="50%" height="auto">
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column" >
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                      Trang Chủ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                      Đơn Hàng
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">
+                      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                      Quản Lý Sản Phẩm
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                      Quản Lý Thông Tin Khách Hàng
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                      Thống Kê
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+
+
+
+            <div class="mx-5 w-100">
+                <div class="bg-white fs-4 rounded w-100">
+                    <p class="pb-2 pt-2 px-2">
+                        Quay lại danh sách sản phẩm
+                    </p>
+                </div>
+                <form method="POST" action="/themhang">
+                    <div class="w-100">
+                        <div class="w-100 mb-5">
+                            <div class="col-lg-6 col-12 rounded bg-white p-3 w-100 shadow">
+                                <div class="form-group mb-3 mt-2 fs-4 w-100 underline-wrapper">
+                                    <p>Thông tin chung</p>
+                                </div>
+                                <div class="form-group mb-3 mt-3">
+                                    <label for="ten_hang" class="mb-3">Tên Hàng:</label>
+                                    <input type="text" class="form-control shadow-sm" id="ten_hang" name="ten_hang" required>
+                                </div>
+                                <div class="form-row d-flex w-100">
+                                    <div class="form-row w-50 mb-3">
+                                        <div class="col-3 mb-3">
+                                            <label for="don_vi_tinh" class="mb-3">Đơn Vị Tính:</label>
+                                            <input type="text" class="form-control shadow-sm" id="don_vi_tinh" name="don_vi_tinh" required>
+                                        </div>
+                                        <div class="col-3 ml-6">
+                                            <label for="don_gia" class="mb-3">Giá Nhập:</label>
+                                            <input type="number" class="form-control shadow-sm" id="don_gia" name="don_gia" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row col-3 w-50 mb-3">
+                                        <label for="so_luong" class="mb-3">Số Lượng:</label>
+                                        <input type="number" class="form-control shadow-sm" id="so_luong" name="so_luong" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid h-100 w-100 bg-white rounded shadow-sm">
+                        <div class="from-group mt-3 mb-3 fs-4 underline-wrapper">
+                            <p class="pt-2 pb-2">Giá sản phẩm</p>
+                        </div>
+                        <div class="form-row d-flex w-100">
+                            <div class="pr-5 w-50">
+                                <label for="gia_ban" class="mb-3">Giá Bán:</label>
+                                <div>
+                                    <input type="number" class="form-control shadow-sm input-sm" id="gia_ban" name="gia_ban" required>
+                                </div>
+                            </div>
+                            <div class="w-50 mb-3">
+                                <p>Thêm ảnh</p>
+                                <div class="dashed-container"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                        <div class="float-end rounded mt-3 mb-3">
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>s
+</html>
